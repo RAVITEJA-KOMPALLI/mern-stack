@@ -28,25 +28,74 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err){
 		console.error(err)
 	}else{
 		console.log("DB Connected");
-		userLib.createFirstUser(function(err, res){
-			//ToDo: Donot create user if atleast one user exists in the table
-			if(err){
-				// console.error(err)
-			}
-			else{
-				console.log(res)
-			}
-		});
-		userLib.updateUser(function(err, result){
+		// CREATE
+		// userLib.createFirstUser(function(err, res){
+		// 	//ToDo: Donot create user if atleast one user exists in the table
+		// 	if(err){
+		// 		// console.error(err)
+		// 	}
+		// 	else{
+		// 		console.log(res)
+		// 	}
+		// });
+		// CREATE BY FILTER
+		// userLib.createUser({userName: "raviteja", yearOfGraduation: 2025}, function(err, res){
+		// 	if(err){
+		// 		console.error(err)
+		// 	}
+		// 	else{
+		// 		console.log("User got Created")
+		// 		console.log(res)
+		// 	}
+		// })
+
+		// UPDATE
+		// userLib.updateUser(function(err, result){
+		// 	if(err){
+		// 		console.error(err)
+		// 	}
+		// 	else{
+		// 		console.log("User Got Updated")
+		// 		console.log(result)
+
+		// 	}
+		// })
+		// DELETE
+		userLib.deleteUser("ravitejaKompalli", function(err, result){
 			if(err){
 				console.error(err)
 			}
 			else{
-				console.log("User Got Updated")
+				console.log("User Got Deleted")
 				console.log(result)
-				
+
 			}
 		})
+
+		// READ
+		// userLib.getAllUsers(function(err, res){
+		// 	if(err){
+		// 		console.error(err)
+
+		// 	}
+		// 	else{
+		// 		console.log("User data")
+		// 		console.log(res)
+
+		// 	}
+		// })
+
+		// READ BY FILTER
+		// userLib.getUserByFilter({userName: "ravitejaKompalli"}, function(err, result){
+		// 	if(err){
+		// 		console.log(err)
+		// 	}
+		// 	else{
+		// 		console.log("Data Fetched")
+		// 		console.log(result)
+		// 	}
+
+		// })
 
 		app.listen(port, function(){
 			console.log("Server running on http://localhost:"+port);

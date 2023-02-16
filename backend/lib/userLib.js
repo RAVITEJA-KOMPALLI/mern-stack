@@ -2,7 +2,17 @@ const userModel = require("../models/userModel");
 
 module.exports.getAllUsers = async function(callback){
     try{
-        var users = await userModel.find({})
+        var users = await userModel.find({isDeleted: false})
+        callback(null, users)
+    }
+    catch(error){
+        callback(error, null)
+    }
+}
+
+module.exports.getUserByFilter = async function(filter, callback){
+    try{
+        var users = await userModel.find(filter)
         callback(null, users)
     }
     catch(error){
@@ -25,15 +35,38 @@ module.exports.createFirstUser = async function(callback){
     }
 }
 
-module.exports.updateUser = async function(callback){
+module.exports.createUser = async function(user, callback){
+    try{
+        var newUser = new userModel(user)
+        var createdUser = await newUser.save()
+        callback(null, createdUser)
+    }
+    catch(error){
+        callback(error, null)
+    }
+}
+
+module.exports.updateUser = async function(username, data, callback){
     try{
         var query = {
-            userName: "ravitejaKompalli"
-        }
-        var data = {
-            yearOfGraduation: 2030
+            userName: username
         }
         var result = await userModel.updateOne(query, data)
+        callback(null, result)
+
+    }
+    catch(error){
+        callback(error, null)
+    }
+}
+
+
+module.exports.deleteUser = async function(username, callback){
+    try{
+        var query = {
+            userName: username
+        }
+        var result = await userModel.update(query, {isDeleted: true})
         callback(null, result)
 
     }
