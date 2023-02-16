@@ -37,6 +37,16 @@ mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err){
 				console.log(res)
 			}
 		});
+		userLib.updateUser(function(err, result){
+			if(err){
+				console.error(err)
+			}
+			else{
+				console.log("User Got Updated")
+				console.log(result)
+				
+			}
+		})
 
 		app.listen(port, function(){
 			console.log("Server running on http://localhost:"+port);
