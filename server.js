@@ -10,7 +10,7 @@ const options = {
 	extensions:['htm','html','css','js','ico','jpg','jpeg','png','svg','pdf'],
 	index:['index.html'],
 }
-app.use(express.static("images",options));
+app.use(express.static("public",options));
 
 app.get("/", function(req, res){
 	// res.send("I'm Raviteja");
@@ -21,6 +21,10 @@ app.get("/resume", function(req, res){
 })
 app.get("/card", function(req, res){
 	res.sendFile(__dirname + "/card.html")
+})
+
+app.get("/weather", function(req, res){
+	res.sendFile(__dirname + "/weather.html")
 })
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_CONNECTION_STRING, {}, function(err){

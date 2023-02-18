@@ -42,55 +42,106 @@
     <div class="cards-container">
         
         <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image " style="width: 100%;" />
+            <img src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
             <div class="card-container">
-                Ravitejaaaaa
-                Student from KL University 
+                <h4 > Raviteja </h4>
+                <p>Designation</p>
+                <!-- Raviteja -->
             </div>
         </div>
         <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image" style="width: 100%;" />
+            <img src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
             <div class="card-container">
-                Raviteja
+                <h4 > Raviteja </h4>
+                <p>Designation</p>
+                <!-- Raviteja -->
+            </div>
+        </div><div class="my-card">
+            <img src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
+            <div class="card-container">
+                <h4 > Raviteja </h4>
+                <p>Designation</p>
+                <!-- Raviteja -->
+            </div>
+        </div><div class="my-card">
+            <img src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
+            <div class="card-container">
+                <h4 > Raviteja </h4>
+                <p>Designation</p>
+                <!-- Raviteja -->
+            </div>
+        </div><div class="my-card">
+            <img src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
+            <div class="card-container">
+                <h4 > Raviteja </h4>
+                <p>Designation</p>
+                <!-- Raviteja -->
+            </div>
+        </div><div class="my-card">
+            <img src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
+            <div class="card-container">
+                <h4 > Raviteja </h4>
+                <p>Designation</p>
+                <!-- Raviteja -->
+            </div>
+        </div><div class="my-card">
+            <img src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
+            <div class="card-container">
+                <h4 > Raviteja </h4>
+                <p>Designation</p>
+                <!-- Raviteja -->
             </div>
         </div>
         <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image" style="width: 100%;" />
+            <img id="userImage" src="/images/Profile-image.png" alt="Profile Image" style="width: 100%;" />
             <div class="card-container">
-                Raviteja
+                <h4 id="userTitle" > Raviteja </h4>
+                <p id="userDesc" >Designation</p>
+                <!-- Raviteja -->
             </div>
         </div>
-        <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image" style="width: 100%;" />
-            <div class="card-container">
-                Raviteja
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image" style="width: 100%;" />
-            <div class="card-container">
-                Raviteja
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image" style="width: 100%;" />
-            <div class="card-container">
-                Raviteja
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image" style="width: 100%;" />
-            <div class="card-container">
-                Raviteja
-            </div>
-        </div>
-        <div class="my-card">
-            <img src="/Profile-image.png" alt="Profile Image" style="width: 100%;" />
-            <div class="card-container">
-                Raviteja
-            </div>
-        </div>
+        
     </div>
+    <button onclick="toggleUser()">Toogle</button>
+    <script>
+
+        const userOne = {
+            name: "bablu",
+            designation: "Engineer",
+            image: "/images/Profile-image.png"
+        }
+        const userTwo = {
+            name: "ravi",
+            designation: "design",
+            image: "/images/dog.png"
+        }
+
+        let currentisbablu = true;
+        let displayUser = userOne;
+
+        let userTitle = document.getElementById("userTitle")
+        let userImg = document.getElementById("userImage")
+        let userDes = document.getElementById("userDesc")
+
+        let toggleUser = function(){
+            if(currentisbablu){
+                displayUser = userTwo
+                currentisbablu = false
+            }
+            else{
+                displayUser = userOne
+                currentisbablu = true
+
+            }
+            userTitle.innerHTML = displayUser.name
+            userDes.innerHTML = displayUser.designation
+            userImg.src = displayUser.image
+            console.log(userImg)
+            console.log(displayUser)
+        }
+        console.log("This is a user title",userTitle)
+
+    </script>
     
     
 </body>
